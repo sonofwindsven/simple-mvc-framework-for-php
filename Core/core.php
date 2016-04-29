@@ -30,5 +30,5 @@ class Factory{
     }
 }
 //实例化url类库
-new \Core\dept\Dept();
+$url = Factory::init("Dept\Dept");
 ?>

@@ -6,9 +6,8 @@ class Index{
         $str1 = "1111111111111|";
         $str2 = "2222222222222";
         $arr = array("zhangsan","lisi","wangwu","zhaoliu");
-        //$database = new \Core\database\Mysql();
         $database = Core\Factory::init('Database\Mysql');
-        $template = new \Core\template\Template();
+        $template = Core\Factory::init('Template\Template');
         $template->assign('str1',$str1);
         $template->assign('str2',$str2);
         $template->assign('arr',$arr);
