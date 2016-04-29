@@ -12,6 +12,7 @@ class Mysql implements Database{
         else
         {
             $config = \App\config\config::get_config();
+
             $host = $config['dbconfig']['host'];
             $use = $config['dbconfig']['use'];
             $pass = $config['dbconfig']['pass'];
