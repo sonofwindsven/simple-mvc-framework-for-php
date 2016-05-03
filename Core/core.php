@@ -23,7 +23,7 @@ class Factory{
                 $class = '\\'.$nsconfig[$nsshort].'\\'.$nsshort_arr[1];
                 $rs = new $class($param);
             }else{
-                echo "不存在此类库";
+                echo "The class is not exist";
             }
         }
         return $rs;

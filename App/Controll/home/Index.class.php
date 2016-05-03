@@ -13,5 +13,9 @@ class Index{
         $template->assign('arr',$arr);
         $template->display('index.php');
     }
+    public function ceshi(){
+        $template = Core\Factory::init('Template\Template');
+        $template->display('home/ceshi.php');
+    }
 }
 ?>
