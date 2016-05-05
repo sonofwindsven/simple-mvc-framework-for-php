@@ -3,8 +3,7 @@ namespace App\Controll\home;
 use Core;
 class Index{
     public function index(){
-        var_dump($_SERVER['REQUEST_URI']);
-        var_dump($_SERVER['PATH_INFO']);
+
         $str1 = "1111111111111|";
         $str2 = "2222222222222";
         $arr = array("zhangsan","lisi","wangwu","zhaoliu");

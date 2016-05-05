@@ -75,15 +75,19 @@ class Mysql implements Database{
     }
     //执行
     public function query(){
-        $query = mysql_query($this->sqlstr,$this->conn);
-        if($query==false)
-        {
-            echo "error";
-            exit;
-        }
-        else
-        {
-            return $query;
+        try{
+            $query = mysql_query($this->sqlstr,$this->conn);
+            if($query==false)
+            {
+                echo "error";
+                exit;
+            }
+            else
+            {
+                return $query;
+            }
+        }catch(Exception $e){
+            echo $e->getMessage();
         }
     }
     //结果集返回数组
@@ -128,6 +132,29 @@ class Mysql implements Database{
     //获取最后一个插入id
     public function insert_id(){
         return mysql_insert_id();
+    }
+    //修改数据
+    public function save($data){
+        if($this->sql['where']==''){ echo "condition can`t empty";}
+        if($this->sql['table']==''){ echo "table can`t empty";}
+        $field_value = '';
+        foreach($data as $k=>$v){
+            $field_value .= ",`".addslashes($k)."`='".addslashes($v)."'";
+        }
+        $field_value = substr($field_value,1);
+        $this->sqlstr = "update ".$this->sql['table']." set {$field_value} where ".$this->sql['where'];
+        if($this->sql['limit']!=''){
+            $this->sqlstr .= " limit ".$this->sql['limit'];
+        }
+        $query = $this->query();
+        return $this->affected_rows();
+    }
+    private function affected_rows(){
+        return mysql_affected_rows($this->conn);
+    }
+    //获取解析后的sql语句
+    public function getLastSql(){
+        return $this->sqlstr;
     }
 }
 
