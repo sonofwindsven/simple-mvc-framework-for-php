@@ -48,7 +48,7 @@ class Mysql implements Database{
         return $this;
     }
     //解析sql成数据库可执行的sql语句
-    public function selectsql(){
+    private function selectsql(){
         $this->sqlstr = 'select '.$this->sql['field'].' from '.$this->sql['table'];
         if($this->sql['where']!=''){
             $this->sqlstr .= " where ".$this->sql['where'];
@@ -74,7 +74,7 @@ class Mysql implements Database{
         return $array;
     }
     //执行
-    public function query(){
+    private function query(){
         try{
             $query = mysql_query($this->sqlstr,$this->conn);
             if($query==false)
@@ -91,14 +91,15 @@ class Mysql implements Database{
         }
     }
     //结果集返回数组
-    protected function fetch_array($query){
+    private function fetch_array($query){
         $array = array();
         $i = 0;
         while($row = mysql_fetch_array($query,MYSQL_ASSOC))
         {
             $array[$i] = $row;
+            $i++;
         }
-        return $array();
+        return $array;
     }
     //返回一行数据
     public function find(){

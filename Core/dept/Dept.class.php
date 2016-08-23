@@ -8,11 +8,6 @@ class Dept{
 
     public function __construct()
     {
-        /*
-        $module = isset($_GET['module'])?$_GET['module']:'home';
-        $model = isset($_GET['model'])?$_GET['model']:'Index';
-        $action = isset($_GET['action'])?$_GET['action']:'index';
-        */
         $path_info = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'';
         if($path_info!='')
         {

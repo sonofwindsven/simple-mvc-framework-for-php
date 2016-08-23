@@ -4,10 +4,10 @@ namespace App\config;
 class config{
     private static $config=array(
         'dbconfig'=>array(  //数据库配置
-            'host'=>'localhost',
+            'host'=>'10.10.11.140',
             'use'=>'root',
             'pass'=>'root',
-            'db'=>'blog'
+            'db'=>'test'
         ),
         'nsconfig'=>array(  //命名空间别名配置
             'Database'=>'Core\database',

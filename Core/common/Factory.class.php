@@ -1,12 +1,5 @@
 <?php
-namespace Core;
-spl_autoload_register(['\\Core\\Template','autoload']);
-
-class Template{
-    static function autoload($class){
-        require ROOT.'/'.str_replace('\\', '/', $class).'.class.php';
-    }
-}
+namespace Core\common;
 
 class Factory{
     static function init($class_name,$param=array()){
@@ -30,6 +23,3 @@ class Factory{
         return $rs;
     }
 }
-//实例化url类库
-$url = Factory::init("Dept\Dept");
-?>
