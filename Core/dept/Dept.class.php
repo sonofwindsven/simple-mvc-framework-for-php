@@ -8,7 +8,9 @@ class Dept{
 
     public function __construct()
     {
-        $path_info = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'';
+        $path_info = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:''; //apache兼容
+        $path_info = (isset($_SERVER['REQUEST_URI']) && empty($path_info))?$_SERVER['REQUEST_URI']:''; //apache兼容
+
         if($path_info!='')
         {
             $path_arr = explode('/',$path_info);

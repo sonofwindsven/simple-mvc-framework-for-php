@@ -1,7 +1,7 @@
 <?php
 namespace App\config;
 
-class config{
+class Config{
     private static $config=array(
         'dbconfig'=>array(  //数据库配置
             'host'=>'10.10.11.140',
@@ -18,6 +18,7 @@ class config{
             "Controll"=>'App\Controll',
             "Module"=>'App\Module',
         ),
+        'admin_front'=>'/Public/admin/',
     );
     static function get_config(){
         return self::$config;
