@@ -1,6 +1,5 @@
 <?php
 namespace Core\database;
-use Core\database\Mysql;
 
 class Model{
     protected $database;

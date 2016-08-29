@@ -8,4 +8,9 @@ class UserModule extends Model{
         $list = $this->database->table('user')->select();
         return $list;
     }
+
+    public function infoByUsername($userName){
+        $userInfo = $this->database->table('user')->where("user_name='{$userName}'")->find();
+        return $userInfo;
+    }
 }

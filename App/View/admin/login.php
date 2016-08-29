@@ -12,10 +12,10 @@
 	<div class="loginwarrp">
 		<div class="logo">管理员登陆</div>
         <div class="login_form">
-			<form id="Login" name="Login" method="post" onsubmit="" action="">
+			<form id="Login" name="Login" method="post" onsubmit="" action="/admin/Login/doLogin">
 				<li class="login-item">
 					<span>用户名：</span>
-					<input type="text" name="UserName" class="login_input">
+					<input type="text" name="userName" class="login_input">
 				</li>
 				<li class="login-item">
 					<span>密　码：</span>

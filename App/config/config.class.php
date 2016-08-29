@@ -4,7 +4,8 @@ namespace App\config;
 class Config{
     private static $config=array(
         'dbconfig'=>array(  //数据库配置
-            'host'=>'10.10.11.140',
+            //'host'=>'10.10.11.140',
+            'host'=>'192.168.1.105',
             'use'=>'root',
             'pass'=>'root',
             'db'=>'test'
@@ -19,6 +20,7 @@ class Config{
             "Module"=>'App\Module',
         ),
         'admin_front'=>'/Public/admin/',
+        'host' => 'http://myblog.com',
     );
     static function get_config(){
         return self::$config;

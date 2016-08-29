@@ -2,10 +2,13 @@
 namespace Core\controll;
 
 use Core\template\Template;
+use Core\lib\Filter;
+use App\config\config;
 
 class Controll{
 
     public $template;  //模板对象
+    public $request;  //请求对象
 
     final function __construct()
     {
@@ -15,6 +18,9 @@ class Controll{
     public function init(){
         $template = new Template();
         $this->template = $template;
+
+        $filter = new Filter();
+        $this->request = $filter;
     }
 
     /**
@@ -32,5 +38,16 @@ class Controll{
      */
     public function redirectSec($url,$sec=1){
         header("Refresh:{$sec};url:{$url}");
+    }
+
+    /**
+     * js提醒跳转
+     */
+    public function alertLocation($url,$msg = '出现错误'){
+        $config_all = Config::get_config();
+        $config_host = $config_all['host'];
+        $url = $config_host.$url;
+        echo "<script>alert('{$msg}');location.href='{$url}';</script>";
+        exit;
     }
 }

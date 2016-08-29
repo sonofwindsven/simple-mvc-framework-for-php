@@ -63,7 +63,7 @@ class Mysql implements Database{
             $this->sqlstr .= " order ".$this->sql['order'];
         }
         if($this->sql['limit']!=''){
-            $this->sqlstr .= " where ".$this->sql['limit'];
+            $this->sqlstr .= " limit ".$this->sql['limit'];
         }
     }
     //执行查询
