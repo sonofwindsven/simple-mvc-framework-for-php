@@ -4,11 +4,13 @@ namespace Core\controll;
 use Core\template\Template;
 use Core\lib\Filter;
 use App\config\config;
+use Core\lib\Session;
 
 class Controll{
 
     public $template;  //模板对象
     public $request;  //请求对象
+    public $session;  //session对象
 
     final function __construct()
     {
@@ -21,6 +23,9 @@ class Controll{
 
         $filter = new Filter();
         $this->request = $filter;
+
+        $session = new Session();
+        $this->session = $session;
     }
 
     /**
